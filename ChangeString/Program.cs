@@ -6,15 +6,24 @@ namespace ChangeString
     {
         private static void Main(string[] args)
         {
-            float [,] A = new float[2, 2];
-            float [,] B = new float[2, 1];
+            Console.Write("Type a string: ");
+            string phrase = Console.ReadLine();
 
-            A[0, 0] = float.Parse(args[0]);
-            A[0, 1] = float.Parse(args[1]);
-            A[1, 0] = float.Parse(args[2]);
-            A[1, 1] = float.Parse(args[3]);
-            B[0, 0] = float.Parse(args[4]);
-            B[1, 0] = float.Parse(args[5]);
+            Console.Write("Type a letter to be replaced: ");
+            string letter = Console.ReadLine();
+            char SingleLetter = char.Parse(letter);
+
+            foreach (char i in phrase)
+            {
+                if (i == SingleLetter)
+                {
+                Console.Write("x");
+                }
+                else 
+                {
+                Console.Write(i);
+                }
+            }            
         }
     }
 }
