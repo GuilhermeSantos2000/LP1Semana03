@@ -34,8 +34,8 @@ namespace HeroPerk
             }
 
             if (countW % 2 != 0) playerPerks |= Perks.WarpShift;
-            if (countA % 2 != 0) playerPerks |= Perks.Stealth;
-            if (countS % 2 != 0) playerPerks |= Perks.AutoHeal;
+            if (countA % 2 != 0) playerPerks |= Perks.AutoHeal;
+            if (countS % 2 != 0) playerPerks |= Perks.Stealth;
             if (countD % 2 != 0) playerPerks |= Perks.DoubleJump;
 
             if (playerPerks != 0)
@@ -55,6 +55,7 @@ namespace HeroPerk
             else
             {
                 Console.WriteLine("!No perks at all!");
+                Console.WriteLine("!Not gonna make it!");
             }
         }
     }
