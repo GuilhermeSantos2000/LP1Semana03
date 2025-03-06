@@ -5,9 +5,9 @@ namespace HeroPerk
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            string perk = args[0];
+            string perk = args[0].Trim().ToLower();
 
             Perks playerPerks = 0;
 
@@ -18,15 +18,18 @@ namespace HeroPerk
 
             foreach (char c in perk)
             {
+                if (c != 'w' && c != 'a' && c != 's' && c != 'd')
+                {
+                    Console.WriteLine("!Unknown perk!");
+                    return;
+                }
+                
                 switch (c)
                 {
                     case 'w': countW++; break;
                     case 'a': countA++; break;
                     case 's': countS++; break;
                     case 'd': countD++; break;
-                    default:
-                        Console.WriteLine("!Unknown perk!");
-                        return;
                 }
             }
 
@@ -35,7 +38,24 @@ namespace HeroPerk
             if (countS % 2 != 0) playerPerks |= Perks.AutoHeal;
             if (countD % 2 != 0) playerPerks |= Perks.DoubleJump;
 
-            Console.Write(playerPerks);
+            if (playerPerks != 0)
+            {
+                Console.WriteLine(playerPerks);
+
+                if ((playerPerks & Perks.Stealth) != 0 && (playerPerks & Perks.DoubleJump) != 0)
+                {
+                    Console.WriteLine("!Silent Jumper!");
+                }
+
+                if ((playerPerks & Perks.AutoHeal) == 0)
+                {
+                    Console.WriteLine("!Not gonna make it!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("!No perks at all!");
+            }
         }
     }
 }
