@@ -1,7 +1,7 @@
 ﻿using System;
-using HeroPerks;
+using HeroPerk;
 
-namespace HeroPerk
+namespace HeroPerks
 {
     public class Program
     {
